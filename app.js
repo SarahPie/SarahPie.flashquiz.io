@@ -110,14 +110,14 @@ start.addEventListener('click', startQuiz);
 
     
 function restartQuiz(){
-    window.location.reload()
+    window.location.href = window.location.href;
 }
 restart.addEventListener('click', restartQuiz);
 
 function changePic(){
     var flashPic = document.createElement("img");
     flashPic.id = "flashPic";
-    flashPic.src = "photos/barry_running.jpg";
+    flashPic.src = "https://lh3.googleusercontent.com/qFjpZLdTg9et1yuRYmXefigV1RQbe5z7oriEJK0rpL55N9Bf_Zi78yTAqO74mkHJM3UJcplwS3DLbEVN3xue5DChnDOSOXk7FpJNtu-o0PIPmoSOcXJf6ZK45tCiPwzZcMBGR3wZ-yJxvAfW8U5L3glfTiYIjcF2J4DDNzpiEbwOKUx9QF7uohoYodHBybmMoXmhw-FzOvnXt5L2OK_A1sOQZKUZ0r_MqMHkfHnwYYrDZS21E2KvG7B_QDzxxzgwDDr5KM17GfuNHdlynsmYaU0Dvdbe1pxiwaU-DlhX-Hb3vjr42lR5eJ863Spe8YQ8hoOt-yvu3hv5BQabjK4Ecb1OU2P_5T6FEWMih7dDM9CgeIUWPqNgdzIyTQxKFUWWs0tjugy-JSp414Z89ja-r02Cp869t4lpQEZ61cLt_0vG8uM787msJQYO-swNc-C3Uj0J8sOcx0lg5bsbJV3Q6jCmUS3CxDjFX8Lf7AAfC15sBMGy3uZUJVWfJtaqLjAFkRq9AEGh16H0nsOlyhHaQA1gku_ZUJSX96JZGOSN4QEhSp9HiuPtQ2fTLMTGDpsInYt86pKRWyV7OikJOf1EGDftUAz0ele7dBjkrLidNSiBa21nd6tKqrN--bY7seNfBNQed01gmHydg2Y_Uwxh1wVcfPOOxoddBRly4g23jvMg3XAHBji0VyGIvfrnWla96VV3a9n3dOmT-wTFaw=w950-h534-no";
   
     var current = document.getElementById("intro");
     var parentDiv = current.parentNode;
@@ -154,20 +154,22 @@ function generateQuiz(questions, quiz){
         quiz.setAttribute('id', 'flashQuiz');                
         
         quiz.innerHTML = "";
-        
-        restart.style.visibility = "visible";
-        
-        if(numCompleted >= 1){
-            prev.style.visibility = "visible";
-        }else if(numCompleted === 0){
-            prev.style.visibility = "hidden";
-            next.style.visibility = "visible";
-        }
       
+        restart.style.visibility = "visible";
+  
+        if(numCompleted >= 1){
+          prev.style.visibility = "visible";
+         }else if(numCompleted === 0){
+          prev.style.visibility = "hidden";
+          next.style.visibility = "visible";
+         }
+
         if(numCompleted < questions.length){
             var nextQuestion = createQuestion(numCompleted);
             quiz.appendChild(nextQuestion);
-            return nextQuestion;      
+            return nextQuestion;
+            
+    
         }else{
             var score = calculateScore(questions, quiz);
             quiz.appendChild(score);
@@ -181,10 +183,11 @@ function generateQuiz(questions, quiz){
     function showAnswers(questions, quiz, num){
     
         var answerContainer = document.createElement('div');
+        answerContainer.setAttribute('id', 'choices');
 
         for (var i = 0; i < questions[num].answers.length; i++) {
             var value = questions[num].answers[i];
-            var item = '<input type="radio" name="answer" id="answer" value="' + value + '"/>' + value;
+            var item = '<input type="radio" id="answer" name="answer" value="' + value + '"/>' + value;
             answerContainer.innerHTML += item;
         }
 
@@ -193,7 +196,7 @@ function generateQuiz(questions, quiz){
 
     function getUserAnswer(){
         var checkedValue = document.querySelector('input[name="answer"]:checked').value;
-        userAnswers[numCompleted] = checkedValue;       
+        userAnswers[numCompleted] = checkedValue;
     }
     
     //calculates final score based on user's answers
