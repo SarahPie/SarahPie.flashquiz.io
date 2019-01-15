@@ -4,7 +4,6 @@ h1{
     font-weight: lighter;
     font-stretch: expanded;
     padding: 10px;
-    background-image: url("");
     background-size: 200px;
     background-position: center;
     background-repeat: no-repeat;
@@ -82,9 +81,9 @@ body{
 }
 
 #flashPic{
-    width: 400px;
-    height: 200px;
-    border-radius: 10px;
+    width: 200px;
+    height: 100px;
+    border-radius: 20px;
 }
 
 #flashQuiz{
@@ -93,12 +92,13 @@ body{
     border-radius: 20px;    
 }
 
-#button-container{
+#button-container, #choices{
     display: flex;
     justify-content: center;
     max-width: 900px;   
     flex-flow: row wrap;
     align-items: center;
+    margin-top: 30px;
 }
 
 #button-container button{
@@ -122,6 +122,14 @@ body{
     color: rgb(56, 14, 14);
     font-weight: bold;
     font-size: larger;
+}
+
+#choices{
+    align-items: baseline;
+}
+
+#answer{
+    margin-left: 20px;
 }
 
 @keyframes click-wave {
@@ -164,7 +172,7 @@ input {
     outline: none;
     position: relative;
     z-index: 1000;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
 input:hover {
@@ -183,7 +191,7 @@ input:checked::before {
     font-size: 26.66667px;
     text-align: center;
     line-height: 40px;
-    content: url("photos/noun_Lightning Bolt_104455.png"); 
+    content: url("https://lh3.googleusercontent.com/fNxm5nXkoG-TKouROZvNTtBpuLvXqUZjMlK4G4njqzHtE9yGD6LxAVvROfyXLdtavXS9qvUm6fzpu3d0RHew3YO4O9-jB2Hd3efKRCozLKF41Iph0qroHElFWL4SK8ygZ84KSHvQh-sRp_zeRQNqBfzjLFXiDa0mHW_2DNfaTwpFdQhZiXAWr20sgsdpc_Y9k51Ev6qc97Hix8EACtSM48cvFrZb2MKcCOErcOSx7RghkMz9Q_15tnzpxHVj-b8LoRBko5KzrIUEHyPYje8IzM1_LrmOWoBgsWN1xeDtUBm13KpltrtpVw7J5FS7N2OCAcblwx5nh7wx17CxB4-4yr7H4h3TAnoU9QjwxCOarJF421wV34STeQNeiECeh-33YmdgcRN5HYmKqs8Q_UTAWc_trW2BHijfINf4tT_5neqJaPdsFUB4wH2TQR1Dh99PF2Lcb8M0VsBja4yrGZdKrpdePvfe5c7S-0-tW0ec5Tkn_I1NWBOkiGoausBV_TKRGQldWYq5PYBLE-d4Nhk7QC9DHl3r7KeNgfcPJkfdXU25tVKvzdyANESeV4pIllPtzglKgMqyPAnZ81QS8XQscD3lrWbtLeLcSxPty-4aKqdk3h6uRyZZBNLwQfqQZM_JvGzHpfu0hBqFrNRqL1XOZo7pKJiXR81Np3WTSy6LcFpGf4JU9k2Keph7pR6J_vPa8Br_nfE6SxL3xYJQYg=s675-no"); 
     transform: scale(0.05);
     align-content: center;
 }
@@ -219,10 +227,10 @@ input.radio::after {
 }
 
 #comment{
-    font-weight: bold;
-    font-size: 16pt;
-  }
-
+  font-weight: bold;
+  font-size: 16pt;
+  margin-top: 50px;
+}
 
     
       
